@@ -170,3 +170,7 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 el_notifications_log.txt
+ELNotification.pyw
+.gitignore
+token.json
+credentials.json
