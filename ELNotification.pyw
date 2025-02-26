@@ -28,7 +28,7 @@ print(f'DBUG: Database Username: {DB_UN} |Password: {DB_PW} |Server: {DB_CS}')  
 # Google API Scopes that will be used. If modifying these scopes, delete the file token.json.
 SCOPES = ['https://www.googleapis.com/auth/gmail.compose']
 
-SEND_REGARDLESS_OF_DATE = True  # boolean that allows the emails to be sent regardless if it is not the first day of the term
+SEND_REGARDLESS_OF_DATE = False  # boolean that allows the emails to be sent regardless if it is not the first day of the term
 
 if __name__ == '__main__':
     with open('el_notifications_log.txt', 'w') as log:
@@ -150,7 +150,7 @@ if __name__ == '__main__':
                                                             # define headers
                                                             mime_message['To'] = manager  # who the email gets sent to
                                                             mime_message['Subject'] = 'Reminder: You have EL students on your caseload'  # subject line of the email
-                                                            mime_message.set_content(f'This is a notification that you have the following EL students on your caseload:\n{studentsOnCaseLoad}')  # body of the email
+                                                            mime_message.set_content(f'This is a notification that you have the following EL students on your caseload:\n{studentsOnCaseLoad}\n\nIf you feel this information is incorrect please reach out to the special services office.')  # body of the email
                                                             # encoded message
                                                             encoded_message = base64.urlsafe_b64encode(mime_message.as_bytes()).decode()
                                                             create_message = {'raw': encoded_message}
